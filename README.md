@@ -1,50 +1,69 @@
-# React + TypeScript + Vite
+# Signup Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple signup form built with React, React Hook Form (RHF), and Zod for validation. It features a smooth validation flow and is automatically deployed to GitHub Pages.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React Hook Form (RHF)** for efficient form handling
+- **Zod** for schema-based validation
+- **Vite** for fast development and builds
+- **GitHub Pages Auto Deployment**
+- **SCSS Support**
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Clone the repository and install dependencies:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+git clone https://github.com/yevhen-o/signupform.git
+cd signupform
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Development
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Run the development server:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+npm run dev
 ```
+
+The app will be available at `http://localhost:5173/`.
+
+## Build
+
+To build the project:
+
+```sh
+npm run build
+```
+
+The output will be in the `dist` folder.
+
+## Deployment
+
+This project is automatically deployed to GitHub Pages on changes to the `main` branch.
+To deploy manually:
+
+```sh
+npm run deploy
+```
+
+Make sure the `homepage` field in `package.json` is correctly set to:
+
+```
+"homepage": "https://yevhen-o.github.io/signupform"
+```
+
+## Tech Stack
+
+- React
+- React Hook Form
+- Zod
+- Vite
+- SCSS
+- GitHub Pages
+
+## License
+
+This project is licensed under the MIT License.
