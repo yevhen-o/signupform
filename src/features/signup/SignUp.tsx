@@ -27,6 +27,8 @@ const SignUp: React.FC = () => {
     confirm_password: "",
   };
 
+  const [submittedData, setSubmittedData] = useState<FormValues | null>(null);
+
   const formFields: FormFieldsType[] = [
     { name: "first_name", placeholder: "Your name" },
     {
@@ -48,11 +50,11 @@ const SignUp: React.FC = () => {
   ];
 
   const submitFunction: SubmitHandler<FormValues> = async (data) => {
-    console.log("Submitting form with data", data);
     return new Promise((resolve) => {
       setTimeout(() => {
+        setSubmittedData(data);
         resolve(true);
-      }, 15 * 1000);
+      }, 5 * 1000);
     });
   };
 
@@ -126,6 +128,7 @@ const SignUp: React.FC = () => {
           {isSubmitting ? "Submitting" : "Sing Up"}
         </Button>
       </form>
+      {submittedData && <pre>{JSON.stringify(submittedData, null, 2)}</pre>}
     </div>
   );
 };
