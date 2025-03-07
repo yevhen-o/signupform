@@ -49,21 +49,13 @@ const SignUp: React.FC = () => {
     },
   ];
 
-  const submitFunction: SubmitHandler<FormValues> = async (data) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        setSubmittedData(data);
-        resolve(true);
-      }, 5 * 1000);
-    });
-  };
-
   const [touchedFields, setTouchedFields] = useState<
     Partial<Record<keyof FormValues, boolean>>
   >({});
 
   const {
     watch,
+    reset,
     control,
     handleSubmit,
     formState: { errors, isSubmitting, dirtyFields },
@@ -72,6 +64,16 @@ const SignUp: React.FC = () => {
     resolver: zodResolver(signUpSchema),
     mode: "all",
   });
+
+  const submitFunction: SubmitHandler<FormValues> = async (data) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        setSubmittedData(data);
+        reset();
+        resolve(true);
+      }, 5 * 1000);
+    });
+  };
 
   const passwordValue = watch("password");
 
